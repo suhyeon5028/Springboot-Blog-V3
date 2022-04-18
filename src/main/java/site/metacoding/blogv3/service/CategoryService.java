@@ -16,10 +16,5 @@ public class CategoryService {
     @Transactional
     public void 카테고리등록(Category category) {
         categoryRepository.save(category);
-        categoryRepository.save(category);
-        categoryRepository.save(category);
-        categoryRepository.save(category);
-        categoryRepository.save(category);
     }
-
 }
