@@ -13,13 +13,13 @@
         <div class="form-group">
             <select class="form-control" name="categoryId">
                 {{#categorys}}
-              <option value="{{id}}">{{title}}</option>
+                <option value="{{id}}">{{title}}</option>
                 {{/categorys}}
             </select>
-          </div>
+        </div>
         <input type="text" placeholder="Enter Title" name="title" class="form-control">
         <div class="form-control d-flex justify-content-end">
-            <div>썸네일 사진 등록 : <input type="file" name="thumnailFile"></div>
+            <div>섬네일 사진 등록 : <input type="file" name="thumnailFile"></div>
         </div>
 
         <div id="toolbar-container">
@@ -67,8 +67,10 @@
         </div>
 
         <div id="editor-container"></div>
-        <textarea name="content" class="my_hidden"></textarea>
-        <button type="submit" id="content" class="my_active_btn">글쓰기 등록</button>
+        <textarea name="content" id="content" class="my_hidden">
+
+        </textarea>
+        <button type="submit" class="my_active_btn">글쓰기 등록</button>
     </form>
     <br />
 

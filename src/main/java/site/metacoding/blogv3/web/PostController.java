@@ -22,9 +22,8 @@ import site.metacoding.blogv3.web.dto.post.PostWriteReqDto;
 public class PostController {
 
     private final PostService postService;
-
     // CategoryService 사용하지 말고
-    // PostService 사용하세요. 이유는 나중에 category, post글 다 같이 가지고 가야하기 때문임!
+    // PostService 사용하세요. 이유는 나중에 category, post글 다 같이 가지고 가야 하기 때문임!!
 
     @PostMapping("/s/post")
     public String write(PostWriteReqDto postWriteReqDto, @AuthenticationPrincipal LoginUser loginUser) {
@@ -50,7 +49,7 @@ public class PostController {
     public String postList(@PathVariable Integer id, @AuthenticationPrincipal LoginUser loginUser, Model model) {
 
         // SELECT * FROM category WHERE userId = :id
-        // 카테고리 가져가세요!
+        // 카테고리 가져가세요!!
         PostRespDto postRespDto = postService.게시글목록보기(id);
         model.addAttribute("postRespDto", postRespDto);
         return "/post/list";
