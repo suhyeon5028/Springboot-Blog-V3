@@ -1,6 +1,5 @@
 package site.metacoding.blogv3.web;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -23,7 +22,6 @@ import site.metacoding.blogv3.web.dto.category.CategoryWriteReqDto;
 @Controller
 public class CategoryController {
 
-    private final HttpSession session;
     private final CategoryService categoryService;
 
     @GetMapping("/s/category/writeForm")
