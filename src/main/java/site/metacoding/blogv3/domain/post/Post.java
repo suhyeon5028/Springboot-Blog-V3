@@ -1,6 +1,7 @@
 package site.metacoding.blogv3.domain.post;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +16,7 @@ import javax.persistence.ManyToOne;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,7 +42,7 @@ public class Post {
     @Column(nullable = true)
     private String content;
 
-    @Column(length = 200, nullable = false)
+    @Column(length = 200, nullable = true)
     private String thumnail;
 
     @JoinColumn(name = "userId")
@@ -55,5 +57,11 @@ public class Post {
     private LocalDateTime createDate;
     @LastModifiedDate // update 할때만 동작
     private LocalDateTime updateDate;
+
+    // yyyy-MM-dd HH:mm:ss
+    public String getFormatCreateDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        return createDate.format(formatter);
+    }
 
 }
