@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.blogv3.config.auth.LoginUser;
 import site.metacoding.blogv3.domain.category.Category;
+import site.metacoding.blogv3.domain.post.Post;
 import site.metacoding.blogv3.handler.ex.CustomException;
 import site.metacoding.blogv3.service.PostService;
 import site.metacoding.blogv3.web.dto.post.PostRespDto;
@@ -27,6 +28,15 @@ public class PostController {
     private final PostService postService;
     // CategoryService 사용하지 말고
     // PostService 사용하세요. 이유는 나중에 category, post글 다 같이 가지고 가야 하기 때문임!!
+
+    @GetMapping("/post/{id}")
+    public String detail(@PathVariable Integer id, Model model, @AuthenticationPrincipal LoginUser loginUser) {
+
+        Post postEntity = postService.게시글상세보기(id);
+        model.addAttribute("post", postEntity);
+
+        return "/post/detail";
+    }
 
     @PostMapping("/s/post")
     public String write(PostWriteReqDto postWriteReqDto, @AuthenticationPrincipal LoginUser loginUser) {
