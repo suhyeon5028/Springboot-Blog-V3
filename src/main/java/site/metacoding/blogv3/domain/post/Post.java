@@ -22,7 +22,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import site.metacoding.blogv3.domain.category.Category;
 import site.metacoding.blogv3.domain.user.User;
-import site.metacoding.blogv3.util.UtillPost;
+import site.metacoding.blogv3.util.UtilPost;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -65,7 +65,7 @@ public class Post {
     }
 
     public String getFormatContent() {
-        return UtillPost.getContentWithoutImg(content);
+        return UtilPost.getContentWithoutImg(content);
     }
 
 }
